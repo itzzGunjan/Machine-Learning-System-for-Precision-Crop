@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Farming System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Smart Farming System</h1>
+            <p>AI-Powered Crop & Fertilizer Recommendations</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'crop-tab')">Crop Recommendation</button>
+            <button class="tab-btn" onclick="openTab(event, 'fertilizer-tab')">Fertilizer Recommendation</button>
+        </div>
+
+        <div id="crop-tab" class="tab-content active">
+            <h2>Recommend Best Crop</h2>
+            <form id="crop-form">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Nitrogen (N)</label>
+                        <input type="number" id="crop-n" required placeholder="e.g., 90">
+                    </div>
+                    <div class="input-group">
+                        <label>Phosphorus (P)</label>
+                        <input type="number" id="crop-p" required placeholder="e.g., 42">
+                    </div>
+                    <div class="input-group">
+                        <label>Potassium (K)</label>
+                        <input type="number" id="crop-k" required placeholder="e.g., 43">
+                    </div>
+                    <div class="input-group">
+                        <label>Temperature (°C)</label>
+                        <input type="number" step="0.1" id="crop-temp" required placeholder="e.g., 20.8">
+                    </div>
+                    <div class="input-group">
+                        <label>Humidity (%)</label>
+                        <input type="number" step="0.1" id="crop-hum" required placeholder="e.g., 82.0">
+                    </div>
+                    <div class="input-group">
+                        <label>pH Level</label>
+                        <input type="number" step="0.1" id="crop-ph" required placeholder="e.g., 6.5">
+                    </div>
+                    <div class="input-group full-width">
+                        <label>Rainfall (mm)</label>
+                        <input type="number" step="0.1" id="crop-rain" required placeholder="e.g., 202.9">
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Get Recommendation</button>
+            </form>
+            <div id="crop-result" class="result-box hidden">
+                <h3>Recommended Crop: <span id="crop-name" class="highlight"></span></h3>
+                <p>Confidence: <span id="crop-confidence"></span>%</p>
+            </div>
+        </div>
+
+        <div id="fertilizer-tab" class="tab-content">
+            <h2>Recommend Best Fertilizer</h2>
+            <form id="fertilizer-form">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Temperature (°C)</label>
+                        <input type="number" id="fert-temp" required placeholder="e.g., 26">
+                    </div>
+                    <div class="input-group">
+                        <label>Humidity (%)</label>
+                        <input type="number" id="fert-hum" required placeholder="e.g., 52">
+                    </div>
+                    <div class="input-group">
+                        <label>Moisture</label>
+                        <input type="number" id="fert-moist" required placeholder="e.g., 38">
+                    </div>
+                    <div class="input-group">
+                        <label>Soil Type</label>
+                        <select id="fert-soil" required>
+                            <option value="Sandy">Sandy</option>
+                            <option value="Loamy">Loamy</option>
+                            <option value="Black">Black</option>
+                            <option value="Red">Red</option>
+                            <option value="Clayey">Clayey</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Crop Type</label>
+                        <select id="fert-crop" required>
+                            <option value="Maize">Maize</option>
+                            <option value="Sugarcane">Sugarcane</option>
+                            <option value="Cotton">Cotton</option>
+                            <option value="Tobacco">Tobacco</option>
+                            <option value="Paddy">Paddy</option>
+                            <option value="Barley">Barley</option>
+                            <option value="Wheat">Wheat</option>
+                            <option value="Millets">Millets</option>
+                            <option value="Oil seeds">Oil seeds</option>
+                            <option value="Pulses">Pulses</option>
+                            <option value="Ground Nuts">Ground Nuts</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Nitrogen (N)</label>
+                        <input type="number" id="fert-n" required placeholder="e.g., 37">
+                    </div>
+                    <div class="input-group">
+                        <label>Phosphorus (P)</label>
+                        <input type="number" id="fert-p" required placeholder="e.g., 0">
+                    </div>
+                    <div class="input-group">
+                        <label>Potassium (K)</label>
+                        <input type="number" id="fert-k" required placeholder="e.g., 0">
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Get Recommendation</button>
+            </form>
+            <div id="fertilizer-result" class="result-box hidden">
+                <h3>Recommended Fertilizer: <span id="fertilizer-name" class="highlight"></span></h3>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
